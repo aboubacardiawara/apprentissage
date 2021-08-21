@@ -7,7 +7,7 @@ $(prog): $(dependancy)
 	@ $(CC) $^ -o $@
 
 reorganize:
-	@ mv $(prog) build
+	@ mv $(prog) build/
 
 buildExec:
 	@echo "compilation in progress ..."
