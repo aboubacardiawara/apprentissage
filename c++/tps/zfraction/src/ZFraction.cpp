@@ -143,25 +143,36 @@ ZFraction operator/(ZFraction& f, ZFraction& f2)
 
 
 // SHORTCUT OPERATION
-ZFraction& operator+=(ZFraction f) 
+ZFraction& ZFraction::operator+=(ZFraction& f) 
 {
-
-	return &this;
+	ZFraction newFraction(this->sumWith(f));
+	this->setNumerator(newFraction.getNumerator());
+	this->setDenominator(newFraction.getDenominator());
+	return *this;
 }
 
-ZFraction& operator-=(ZFraction f)
+ZFraction& ZFraction::operator-=(ZFraction& f)
 {
-	return &this;
+	ZFraction newFraction(this->sumWith(f.opposite()));
+	this->setNumerator(newFraction.getNumerator());
+	this->setDenominator(newFraction.getDenominator());
+	return *this;
 }
 
-ZFraction& operator*=(ZFraction f)
+ZFraction& ZFraction::operator*=(ZFraction& f)
 {
-	return &this;
+	ZFraction newFraction(this->productWith(f));
+	this->setNumerator(newFraction.getNumerator());
+	this->setDenominator(newFraction.getDenominator());
+	return *this;
 }
 
-ZFraction& operator/=(ZFraction f)
+ZFraction& ZFraction::operator/=(ZFraction& f)
 {
-	return &this;
+	ZFraction newFraction(this->productWith(f.inverse()));
+	this->setNumerator(newFraction.getNumerator());
+	this->setDenominator(newFraction.getDenominator());
+	return *this;
 }
 // COMPARAISON
 

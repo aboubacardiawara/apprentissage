@@ -57,10 +57,10 @@ public:
 	ZFraction inverse();
 
 	// shortcut operations
-	ZFraction& operator+=(ZFraction f);
-	ZFraction& operator-=(ZFraction f);
-	ZFraction& operator*=(ZFraction f);
-	ZFraction& operator/=(ZFraction f);
+	ZFraction& operator+=(ZFraction& f);
+	ZFraction& operator-=(ZFraction& f);
+	ZFraction& operator*=(ZFraction& f);
+	ZFraction& operator/=(ZFraction& f);
 
 	void print();
 
@@ -82,6 +82,6 @@ ZFraction operator/(ZFraction& f1, ZFraction& f2);
 
 
 // comparaison operation
-bool operator==(ZFraction f);
-bool operator==(ZFraction f);
+bool operator==(ZFraction& f1, ZFraction& f2);
+bool operator!=(ZFraction& f1, ZFraction& f2);
 #endif
