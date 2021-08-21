@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ZFraction.h"
+#include <ostream>
 
 /** constructor
  */
@@ -167,6 +168,14 @@ ZFraction& ZFraction::operator*=(ZFraction& f)
 	return *this;
 }
 
+/** check if the Zfraction is positif or not.
+ * @return {bool} false, if it is negatif, true else if.
+ */
+bool ZFraction::isPositif()
+{
+	return numerator >= 0 and denominator >= 0;
+}
+
 ZFraction& ZFraction::operator/=(ZFraction& f)
 {
 	ZFraction newFraction(this->productWith(f.inverse()));
@@ -175,9 +184,42 @@ ZFraction& ZFraction::operator/=(ZFraction& f)
 	return *this;
 }
 // COMPARAISON
+bool operator==(ZFraction& f1, ZFraction& f2)
+{
+	return f1.getNumerator() == f2.getNumerator() && f1.getDenominator() == f2.getDenominator();
+}
 
+bool operator<(ZFraction& f1, ZFraction& f2){
+	ZFraction difference(f1-f2);
+	// positif, negatif, null ??
+	if (!difference.isPositif())
+		return true;
+	return false;
+}
+
+bool operator>(ZFraction& f1, ZFraction& f2){
+	return f2 < f1;
+}
+
+bool operator!=(ZFraction& f1, ZFraction& f2){
+	return ! (f1 == f2);
+}
+
+bool operator<=(ZFraction& f1, ZFraction& f2){
+	return (f1 == f2) or (f1 < f2);
+}
+
+bool operator>=(ZFraction& f1, ZFraction& f2){
+	return (f1 == f2) or (f1 > f2);
+}
 // FLUX
 
+
+std::ostream& operator<<(std::ostream &flux, ZFraction& f)
+{
+	f.print();
+	return flux;
+}
 
 
 void ZFraction::print()

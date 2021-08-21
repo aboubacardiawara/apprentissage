@@ -8,9 +8,11 @@ $(prog): $(dependancy)
 
 reorganize:
 	@ mv $(prog) build/
-
+clean:
+	rm -r build
 buildExec:
-	@echo "compilation in progress ..."
+	@ echo "compilation in progress ..."
 	@ make $(prog)
+	@ mkdir build 
 	@ make reorganize
 	@ echo "process finished !"

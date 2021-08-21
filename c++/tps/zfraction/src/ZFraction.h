@@ -1,6 +1,5 @@
 #ifndef FRACTION_H
 #define FRACTION_H
-
 class ZFraction
 {
 public:
@@ -39,6 +38,11 @@ public:
 	 * \param {int} newDenominator, the value to set as new denominator.
 	 */
 	void setDenominator(int newDenominator);
+
+	/** check if the Zfraction is positif or not.
+	 * @return {bool} false, if it is negatif, true else if.
+	 */
+	bool isPositif();
 
 	/** return the sum of the ZFraction with another one.
 	 * \param {ZFraction} another ZFraction 
@@ -83,5 +87,14 @@ ZFraction operator/(ZFraction& f1, ZFraction& f2);
 
 // comparaison operation
 bool operator==(ZFraction& f1, ZFraction& f2);
+bool operator<(ZFraction& f1, ZFraction& f2);
+bool operator<=(ZFraction& f1, ZFraction& f2);
+bool operator>(ZFraction& f1, ZFraction& f2);
+bool operator>=(ZFraction& f1, ZFraction& f2);
 bool operator!=(ZFraction& f1, ZFraction& f2);
+
+// flux operations
+std::ostream& operator<<(std::ostream& flux, ZFraction& f);
+
+
 #endif
