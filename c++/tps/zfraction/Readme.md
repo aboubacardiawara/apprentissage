@@ -80,4 +80,4 @@ $ ./prog #prog est le nom de l'executable ici
 vous être libre de faire des modifications sur la classe.
 
 ## Aperçu du programme actuel.
-<img src="assets/../../assets/image.png" />
+<img src="./assets/image.png" />
